@@ -45,9 +45,6 @@
 
         <div class="max-w-3xl mx-auto relative z-10">
             <div class="flex items-center justify-center gap-4 mb-4">
-                <span class="w-12 h-[1px] bg-gray-800"></span>
-                <span class="text-gray-800 text-xs font-bold tracking-[0.2em] uppercase">Bali Coconut Art</span>
-                <span class="w-12 h-[1px] bg-gray-800"></span>
             </div>
             
             <h1 class="text-4xl md:text-5xl text-gray-900 font-extrabold mb-6 uppercase tracking-tight">
