@@ -1,0 +1,146 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+
+/* ─────────────────────────────────────────────────────────────
+   BALI COCONUT ART — Design Tokens (Tailwind v4 @theme)
+───────────────────────────────────────────────────────────── */
+@theme {
+    /* Fonts */
+    --font-oswald: 'Oswald', sans-serif;
+    --font-inter:  'Inter', sans-serif;
+
+    /* Brand Palette */
+    --color-coconut-50:  #f9f6f0;
+    --color-coconut-100: #f0e8d8;
+    --color-coconut-200: #ddd0b8;
+    --color-coconut-300: #c5ae8e;
+    --color-coconut-500: #9a7e58;
+    --color-coconut-700: #6b5238;
+    --color-coconut-900: #3d2c1a;
+
+    --color-leaf-400: #4ade80;
+    --color-leaf-500: #22c55e;
+    --color-leaf-600: #16a34a;
+    --color-leaf-700: #15803d;
+
+    --color-sand:    #faf8f4;
+    --color-parchment: #f5f0e8;
+
+    /* Spacing extras */
+    --spacing-18: 4.5rem;
+    --spacing-88: 22rem;
+
+    /* Border radius */
+    --radius-4xl: 2rem;
+    --radius-5xl: 2.5rem;
+
+    /* Shadows */
+    --shadow-card:   0 4px 24px 0 rgba(61,44,26,0.10);
+    --shadow-hero:   0 0 60px 0 rgba(61,44,26,0.08);
+    --shadow-glow:   0 0 0 4px rgba(34,197,94,0.18);
+}
+
+
+
+/* ─────────────────────────────────────────────────────────────
+   Base resets / global defaults
+───────────────────────────────────────────────────────────── */
+@layer base {
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html {
+        scroll-behavior: smooth;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+        font-family: var(--font-inter);
+        background-color: #ffffff;
+        color: #111827;
+        overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-family: var(--font-oswald);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: -0.01em;
+    }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Scroll-reveal utility  (used by welcome.blade.php JS)
+───────────────────────────────────────────────────────────── */
+@layer utilities {
+
+    @keyframes slowZoom {
+        0%   { transform: scale(1); }
+        100% { transform: scale(1.08); }
+    }
+    
+    .animate-slow-zoom {
+        animation: slowZoom 6s ease-out forwards;
+    }
+    
+    .bca-reveal {
+        opacity: 0;
+        transform: translateY(28px);
+        transition:
+            opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+            transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .bca-visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Stagger helpers for about stats */
+    .stagger-1 { transition-delay:   0ms; }
+    .stagger-2 { transition-delay:  80ms; }
+    .stagger-3 { transition-delay: 160ms; }
+    .stagger-4 { transition-delay: 240ms; }
+
+    /* Nav active state */
+    .nav-active { color: #16a34a !important; }
+
+    /* Subtle grain overlay for hero */
+    .grain::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+        pointer-events: none;
+        z-index: 1;
+        opacity: 0.4;
+    }
+
+    /* Thin vertical rule used in hero sidebar */
+    .sidebar-rule {
+        width: 1px;
+        background: linear-gradient(to bottom, transparent 0%, #d1d5db 20%, #d1d5db 80%, transparent 100%);
+    }
+
+    /* Animated ping dot */
+    .ping-dot::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: 9999px;
+        background: #22c55e;
+        animation: ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+    }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Portfolio card hover overlay
+───────────────────────────────────────────────────────────── */
+.portfolio-item .overlay {
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+.portfolio-item:hover .overlay { opacity: 1; }
+.portfolio-item img {
+    transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.portfolio-item:hover img { transform: scale(1.06); }   
