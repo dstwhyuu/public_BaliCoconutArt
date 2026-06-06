@@ -20,7 +20,7 @@ class ContactController extends Controller
 
         // 2. Perintahkan sistem mengirim email KEPADA admin
         // Email penerima ini adalah tempat kamu membaca ulasan yang masuk
-        Mail::to('hello@balicoconutart.com')->send(new ReviewMail($validatedData));
+        Mail::to('info@balicoconutart.com')->send(new ReviewMail($validatedData));
 
         // 3. Kembalikan pengunjung ke halaman sebelumnya dengan pesan sukses
         return back()->with('success', 'Thank you! Your review has been successfully submitted.');

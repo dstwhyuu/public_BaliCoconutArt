@@ -23,3 +23,7 @@ Route::get('/gallery', function () {
 Route::get('/about', function () {
     return view('about');
 })->name('about');
+
+Route::get('/services', function () {
+    return view('services');
+})->name('services');
