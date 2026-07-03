@@ -1,7 +1,7 @@
 {{-- ═══════════════════════════════════════════════════════════════
     SECTION: PORTFOLIO / GALLERY (#portfolio)
     Layout  : 3D Coverflow Carousel + Fan Out Animation
-    Theme   : Dark Coconut Shell + Luxury Gold
+    Theme   : Dark Coconut Shell + Tropical Green
 ═══════════════════════════════════════════════════════════════ --}}
 
 @php
@@ -45,14 +45,12 @@ $items = [
         {{-- Header Section --}}
         <div class="text-center mb-12">
             <div class="flex items-center justify-center gap-4 mb-3">
-                <span class="w-8 h-[1px] bg-[#DEC484]"></span>
-                <span class="text-[#DEC484] text-xs font-bold tracking-[0.2em] uppercase">Gallery</span>
-                <span class="w-8 h-[1px] bg-[#DEC484]"></span>
+                <span class="text-[#8CC63F] text-xs font-bold tracking-[0.2em] uppercase">Gallery</span>
             </div>
             
-            <h2 class="text-3xl md:text-4xl font-extrabold text-[#0B1A28] uppercase leading-tight mb-4">
-                OUR TROPICAL <br>
-                <span class="text-[#DEC484]">MASTERPIECES</span>
+            <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 uppercase leading-tight mb-4">
+                OUR TROPICAL
+                <span class="text-[#8CC63F]">MASTERPIECES</span>
             </h2>
             
             <p class="text-gray-500 text-sm md:text-base max-w-2xl mx-auto">
@@ -65,14 +63,14 @@ $items = [
 
             {{-- TOMBOL CTA KANAN ATAS (Desktop Only) --}}
             <div class="hidden lg:block absolute -top-8 right-0 z-30">
-                <a href="{{ route('gallery') }}" class="inline-flex items-center gap-1.5 font-inter text-[0.65rem] tracking-[0.15em] uppercase font-bold text-gray-900 border border-gray-200 rounded-full px-5 py-2 hover:border-[#C89B5F] hover:bg-[#C89B5F] hover:text-white hover:shadow-md transition-all duration-300">
+                <a href="{{ route('gallery') }}" class="inline-flex items-center gap-1.5 font-inter text-[0.65rem] tracking-[0.15em] uppercase font-bold text-gray-900 border border-gray-200 rounded-full px-5 py-2 hover:border-[#5B8C2A] hover:bg-[#5B8C2A] hover:text-white hover:shadow-md transition-all duration-300">
                     View Full Gallery <i class="fas fa-arrow-right ml-1"></i>
                 </a>
             </div>
 
             {{-- TOMBOL CTA CENTER (Mobile Only) --}}
             <div class="flex lg:hidden justify-center mb-8 relative z-30">
-                <a href="{{ url('/gallery') }}" class="inline-flex items-center gap-1.5 font-inter text-[0.65rem] tracking-[0.15em] uppercase font-bold text-gray-900 border border-gray-200 rounded-full px-5 py-2 hover:border-[#C89B5F] hover:bg-[#C89B5F] hover:text-white hover:shadow-md transition-all duration-300">
+                <a href="{{ url('/gallery') }}" class="inline-flex items-center gap-1.5 font-inter text-[0.65rem] tracking-[0.15em] uppercase font-bold text-gray-900 border border-gray-200 rounded-full px-5 py-2 hover:border-[#5B8C2A] hover:bg-[#5B8C2A] hover:text-white hover:shadow-md transition-all duration-300">
                     View Full Gallery <i class="fas fa-arrow-right ml-1"></i>
                 </a>
             </div>
@@ -97,7 +95,7 @@ $items = [
 
                         {{-- Teks Konten --}}
                         <div class="js-content absolute inset-x-0 bottom-0 p-6 md:p-8 translate-y-6 opacity-0 transition-all duration-[800ms] ease-out flex flex-col justify-end pointer-events-none">
-                            <span class="text-[#DEC484] font-inter text-[0.6rem] md:text-xs tracking-[0.2em] uppercase font-bold drop-shadow-md mb-2">{{ $item['category'] }}</span>
+                            <span class="text-[#8CC63F] font-inter text-[0.6rem] md:text-xs tracking-[0.2em] uppercase font-bold drop-shadow-md mb-2">{{ $item['category'] }}</span>
                             <h3 class="font-oswald font-bold text-2xl md:text-3xl text-white uppercase tracking-wide leading-tight drop-shadow-lg mb-1.5">{{ $item['title'] }}</h3>
                             <p class="text-white/80 font-inter text-[0.7rem] md:text-sm font-light tracking-wide drop-shadow-md">{{ $item['tagline'] }}</p>
                         </div>
@@ -108,10 +106,10 @@ $items = [
                 </div>
                 
                 {{-- Tombol Prev / Next --}}
-                <button id="prevBtn" class="absolute left-0 md:left-4 top-1/2 -translate-y-1/2 z-[60] w-12 h-12 rounded-full border border-gray-200 bg-white/90 backdrop-blur-md flex items-center justify-center text-gray-600 shadow-lg hover:shadow-xl hover:border-[#C89B5F] hover:bg-[#C89B5F] hover:text-white hover:scale-110 transition-all duration-300">
+                <button id="prevBtn" class="absolute left-0 md:left-4 top-1/2 -translate-y-1/2 z-[60] w-12 h-12 rounded-full border border-gray-200 bg-white/90 backdrop-blur-md flex items-center justify-center text-gray-600 shadow-lg hover:shadow-xl hover:border-[#5B8C2A] hover:bg-[#5B8C2A] hover:text-white hover:scale-110 transition-all duration-300">
                     <i class="fas fa-arrow-left"></i>
                 </button>
-                <button id="nextBtn" class="absolute right-0 md:right-4 top-1/2 -translate-y-1/2 z-[60] w-12 h-12 rounded-full border border-gray-200 bg-white/90 backdrop-blur-md flex items-center justify-center text-gray-600 shadow-lg hover:shadow-xl hover:border-[#C89B5F] hover:bg-[#C89B5F] hover:text-white hover:scale-110 transition-all duration-300">
+                <button id="nextBtn" class="absolute right-0 md:right-4 top-1/2 -translate-y-1/2 z-[60] w-12 h-12 rounded-full border border-gray-200 bg-white/90 backdrop-blur-md flex items-center justify-center text-gray-600 shadow-lg hover:shadow-xl hover:border-[#5B8C2A] hover:bg-[#5B8C2A] hover:text-white hover:scale-110 transition-all duration-300">
                     <i class="fas fa-arrow-right"></i>
                 </button>
             </div>

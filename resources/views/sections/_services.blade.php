@@ -1,7 +1,7 @@
 {{-- ═══════════════════════════════════════════════════════════════
     SECTION: SERVICES / PRICING  (#services)
     Layout  : Original 3-Column Grid (Optimized for Mobile Proportions)
-    Theme   : Pure white bg, image top, amber/gold accents
+    Theme   : Pure white bg, image top, tropical green accents
 ═══════════════════════════════════════════════════════════════ --}}
 
 @php
@@ -10,7 +10,7 @@ $waNumber = '628123456789';
 
 $services = [
     [
-        'image' => 'images/custom.webp',
+        'image' => 'images/g15.webp',
         'title' => 'Custom Coconut Logo',
         'desc'  => 'Laser-engraved coconuts with custom designs for weddings or corporate branding.',
         'price' => 'Rp 30.000 / Pcs',
@@ -20,11 +20,11 @@ $services = [
         'image' => 'images/staff2.webp',
         'title' => 'Staff In-Charge',
         'desc'  => 'Professional on-site staff to freshly open and serve coconuts to your guests.',
-        'price' => 'Rp 400.000',
+        'price' => 'Rp 300.000',
         'tags'  => ['Open Coconut', 'Serve Guests', 'Clear Up', '4 Hours'],
     ],
     [
-        'image' => 'images/g30.webp',
+        'image' => 'images/n9.webp',
         'title' => 'Resort & Hotel Supply',
         'desc'  => 'Premium fresh coconuts supply for welcome drinks at your villa, hotel, or resort.',
         'price' => 'Custom Pricing',
@@ -40,15 +40,13 @@ $services = [
         <div class="text-center mb-10 md:mb-12">
             {{-- Eyebrow --}}
             <div class="flex items-center justify-center gap-4 mb-3">
-                <span class="w-8 h-[1px] bg-[#DEC484]"></span>
-                <span class="text-[#DEC484] text-xs font-bold tracking-[0.2em] uppercase">Pricing & Services</span>
-                <span class="w-8 h-[1px] bg-[#DEC484]"></span>
+                <span class="text-[#8CC63F] text-xs font-bold tracking-[0.2em] uppercase">Pricing & Services</span>
             </div>
             
             {{-- Main Title --}}
-            <h2 class="text-3xl md:text-4xl font-extrabold text-[#0B1A28] uppercase leading-tight mb-4">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 uppercase leading-tight mb-4">
                 TAILORED FOR YOUR <br>
-                <span class="text-[#DEC484]">PERFECT EVENT</span>
+                <span class="text-[#8CC63F]">PERFECT EVENT</span>
             </h2>
             
             {{-- Subtitle --}}
@@ -63,20 +61,20 @@ $services = [
             
             @foreach($services as $svc)
             {{-- Mengubah tag pembungkus menjadi <a> untuk redirect ke halaman services --}}
-            <a href="{{ route('services') }}" class="group relative bg-white rounded-[1.5rem] md:rounded-[2rem] border border-gray-200 shadow-sm hover:shadow-[0_20px_50px_rgba(200,155,95,0.1)] hover:-translate-y-2 transition-all duration-500 flex flex-col h-full overflow-hidden cursor-pointer">
-                
-                {{-- Area Foto (Tinggi disesuaikan sedikit untuk HP agar pas) --}}
+            <a href="{{ route('services') }}" class="group relative bg-white rounded-[1.5rem] md:rounded-[2rem] border border-gray-200 shadow-sm hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] hover:-translate-y-2 transition-all duration-500 flex flex-col h-full overflow-hidden cursor-pointer">
+
+                {{-- Area Foto --}}
                 <div class="relative w-full h-48 sm:h-52 md:h-56 overflow-hidden bg-gray-100">
-                    <img src="{{ asset($svc['image']) }}" alt="{{ $svc['title'] }}" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110">
+                    <img src="{{ asset($svc['image']) }}" alt="{{ $svc['title'] }}" class="w-full h-full object-cover">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent pointer-events-none"></div>
                 </div>
 
                 {{-- Area Konten --}}
                 <div class="p-5 md:p-6 flex-1 flex flex-col">
-                    <h3 class="font-oswald font-bold uppercase tracking-tight leading-tight text-xl lg:text-2xl text-gray-900 mb-2 md:mb-3 group-hover:text-[#C89B5F] transition-colors duration-300">
+                    <h3 class="font-oswald font-bold uppercase tracking-tight leading-tight text-xl lg:text-2xl text-gray-900 mb-2 md:mb-3">
                         {{ $svc['title'] }}
                     </h3>
-                    
+
                     <p class="font-inter text-sm text-gray-500 font-light leading-relaxed mb-5 md:mb-6 flex-1">
                         {{ $svc['desc'] }}
                     </p>
@@ -84,21 +82,23 @@ $services = [
                     {{-- Tags --}}
                     <div class="flex flex-wrap gap-2 mb-5 md:mb-6">
                         @foreach($svc['tags'] as $tag)
-                        <span class="inline-flex items-center font-inter text-[0.6rem] tracking-[0.08em] font-semibold uppercase text-gray-600 bg-white border border-gray-200 rounded-full px-2.5 py-1 md:px-3 md:py-1.5 shadow-sm group-hover:border-[#DEC484]/60 group-hover:text-amber-700 transition-all duration-300">
-                            <i class="fas fa-check text-[#C89B5F] mr-1.5 text-[0.65rem]"></i> {{ $tag }}
-                        </span>
+                            <span class="inline-flex items-center font-inter text-[0.6rem] tracking-[0.08em] font-semibold uppercase text-gray-600 bg-white border border-gray-200 rounded-full px-2.5 py-1 md:px-3 md:py-1.5 shadow-sm">
+                                {{ $tag }}
+                            </span>
+                            @if($loop->iteration % 2 == 0 && !$loop->last)
+                                <div class="basis-full h-0"></div>
+                            @endif
                         @endforeach
                     </div>
 
-                    {{-- Footer Card (Harga & Tombol Panah Kanan) --}}
+                    {{-- Footer Card --}}
                     <div class="pt-4 md:pt-5 border-t border-gray-100 flex items-center justify-between mt-auto">
                         <div>
                             <p class="font-inter text-[0.6rem] md:text-xs text-gray-400 uppercase tracking-widest mb-1 font-bold">Starting from</p>
                             <p class="font-oswald font-bold text-lg text-gray-900">{{ $svc['price'] }}</p>
                         </div>
-                        
-                        {{-- Tombol Panah Kanan sebagai pengganti tombol WA --}}
-                        <div class="w-10 h-10 md:w-11 md:h-11 rounded-full bg-gray-50 border border-gray-100 flex items-center justify-center text-gray-400 group-hover:bg-[#C89B5F] group-hover:text-white group-hover:border-[#C89B5F] transition-all duration-300 transform group-hover:translate-x-1 shadow-sm">
+
+                        <div class="w-10 h-10 md:w-11 md:h-11 rounded-full bg-gray-50 border border-gray-100 flex items-center justify-center text-gray-400 group-hover:bg-[#8CC63F] group-hover:text-white group-hover:border-[#8CC63F] transition-all duration-300 transform group-hover:translate-x-1 shadow-sm">
                             <i class="fas fa-arrow-right text-sm md:text-base"></i>
                         </div>
                     </div>

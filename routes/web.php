@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\InquireController;
 use Illuminate\Support\Facades\Route;
+
 
 // Tampilan Halaman Utama Company Profile
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -27,3 +29,5 @@ Route::get('/about', function () {
 Route::get('/services', function () {
     return view('services');
 })->name('services');
+
+Route::post('/inquire', [InquireController::class, 'store'])->name('inquire.store');
